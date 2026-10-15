@@ -1,4 +1,4 @@
-package org.setu.placemark.models
+package org.setu.placemarks.models
 
 /**
  * Data class representing a single Placemark item.
@@ -7,7 +7,7 @@ package org.setu.placemark.models
 data class PlacedMark(
     var id:  Long = 0L,
     var title: String = "",
-    var desc: String = "",
+    var description: String = "",
     var x: Double = 0.0,
     var y: Double = 0.0
 )

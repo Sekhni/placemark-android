@@ -1,4 +1,4 @@
-package org.setu.placemark.models
+package org.setu.placemarks.models
 
 import java.util.concurrent.atomic.AtomicLong
 
@@ -19,7 +19,7 @@ class PlacemarkMemStore {
         val foundPlacemark = findOne(placemark.id)
         return if (foundPlacemark != null) {
             foundPlacemark.title = placemark.title
-            foundPlacemark.desc = placemark.desc
+            foundPlacemark.description = placemark.description
             foundPlacemark.x = placemark.x
             foundPlacemark.y = placemark.y
             true

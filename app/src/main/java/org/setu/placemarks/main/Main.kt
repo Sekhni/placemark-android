@@ -1,7 +1,7 @@
-package org.setu.placemark.main
+package org.setu.placemarks.main
 
-import org.setu.placemark.models.PlacemarkMemStore
-import org.setu.placemark.models.PlacedMark
+import org.setu.placemarks.models.PlacemarkMemStore
+import org.setu.placemarks.models.PlacedMark
 
 val store = PlacemarkMemStore()
 
@@ -44,7 +44,7 @@ fun addPlacemark() {
     val description = readlnOrNull()?.trim().orEmpty()
 
     if (title.isNotEmpty()) {
-        val placemark = PlacedMark(title = title, desc = description)
+        val placemark = PlacedMark(title = title, description = description)
         store.create(placemark)
         println("Placemark added successfully with ID: ${placemark.id}")
     } else {
@@ -58,7 +58,7 @@ fun listPlacemarks() {
     if (placemarks.isEmpty()) {
         println("No placemarks stored yet.")
     } else {
-        placemarks.forEach { println("ID: ${it.id} | Title: ${it.title} | Description: ${it.desc}") }
+        placemarks.forEach { println("ID: ${it.id} | Title: ${it.title} | Description: ${it.description}") }
     }
 }
 
@@ -77,7 +77,7 @@ fun updatePlacemark() {
         val description = readlnOrNull()?.trim().orEmpty()
 
         if (title.isNotEmpty()) {
-            val updated = store.update(PlacedMark(id = id, title = title, desc = description))
+            val updated = store.update(PlacedMark(id = id, title = title, description = description))
             if (updated) println("Placemark updated successfully.")
         } else {
             println("Title cannot be empty. Update cancelled.")
@@ -115,7 +115,7 @@ fun searchPlacemark() {
     if (id != null) {
         val placemark = store.findOne(id)
         if (placemark != null) {
-            println("Found: ID: ${placemark.id} | Title: ${placemark.title} | Description: ${placemark.desc}")
+            println("Found: ID: ${placemark.id} | Title: ${placemark.title} | Description: ${placemark.description}")
         } else {
             println("No placemark found with ID $id.")
         }
